@@ -1,13 +1,12 @@
-#Neighbrhood map project
+# Neighbrhood map project
 
-##About Project
+## About Project
 Displays locations on side Navbar and coreesponding Map locations in the Map.
 Filter locations by putting some starting word of loactions and then pressing filter button.
 
-##Requirements
+## Requirements
 Web browser (chrome,firefox,etc).
 
-##Installation
+## Installation
 Run the index.html file
 
-##About Project
