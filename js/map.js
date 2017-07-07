@@ -77,7 +77,7 @@ function initMap() {
           }
         });
 
-        var placeUrl = "http://en.wikipedia.org/w/api.php?action=opensearch&search="+selectedMarker.title+"&format=json&callback=wikiCallback";
+        var placeUrl = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+selectedMarker.title+"&format=json&callback=wikiCallback";
         $wikiElem = $('.infoContent');
 
         //setTimeout for error handling
@@ -98,7 +98,7 @@ function initMap() {
             while(articleStr.indexOf(" ")>-1){
               articleStr=articleStr.replace(" ","%20");
             }
-            var url = 'http://en.wikipedia.org/wiki/'+articleStr;
+            var url = 'https://en.wikipedia.org/wiki/'+articleStr;
             $wikiElem.append('<li><a href='+url+'>'+article+'</a></li>');
           }
         $wikiElem.append('<div>Source  : <em><a href="https://en.wikipedia.org">Wikipedia</a></em></div>');
