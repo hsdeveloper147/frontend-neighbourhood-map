@@ -82,7 +82,7 @@ function initMap() {
 
         //setTimeout for error handling
         var wikiRequestTimeOut =setTimeout(function(){
-          $wikiElem.text('unable to load wiki !!');
+          infoWindow.setContent('Unable to load wiki data!!');
         },8000);
 
 
