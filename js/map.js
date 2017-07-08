@@ -68,7 +68,8 @@ function initMap() {
   var displayInfoWindow = function(selectedMarker,infoWindow) {
     if(infoWindow.marker != selectedMarker) {
         infoWindow.marker = selectedMarker;
-        infoWindow.setContent('<div class="infoContent"><div>' + selectedMarker.title + '</div></div>');
+        var defaultText = "Loading data for ";
+        infoWindow.setContent('<div>' + defaultText + selectedMarker.title + '...</div>');
         infoWindow.open(map, selectedMarker);
         infoWindow.addListener('closeclick',function(){
           if(infoWindow.marker !== null) {
@@ -78,7 +79,6 @@ function initMap() {
         });
 
         var placeUrl = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+selectedMarker.title+"&format=json&callback=wikiCallback";
-        $wikiElem = $('.infoContent');
 
         //setTimeout for error handling
         var wikiRequestTimeOut =setTimeout(function(){
@@ -99,9 +99,9 @@ function initMap() {
               articleStr=articleStr.replace(" ","%20");
             }
             var url = 'https://en.wikipedia.org/wiki/'+articleStr;
-            $wikiElem.append('<li><a href='+url+'>'+article+'</a></li>');
+            infoWindow.setContent(infoWindow.content + '<li><a href='+url+'>'+article+'</a></li>');
           }
-        $wikiElem.append('<div>Source  : <em><a href="https://en.wikipedia.org">Wikipedia</a></em></div>');
+          infoWindow.setContent(infoWindow.content + '<div>Source  : <em><a href="https://en.wikipedia.org">Wikipedia</a></em>');
         clearTimeout(wikiRequestTimeOut);
 
         })
